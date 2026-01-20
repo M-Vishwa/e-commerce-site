@@ -33,16 +33,16 @@ A modern, fully responsive e-commerce platform designed to provide a seamless sh
    ```bash
    git clone [https://github.com/M-Vishwa/e-commerce-site.git](https://github.com/M-Vishwa/e-commerce-site.git)
    cd e-commerce-site
-
-   ```cd backend
-npm install```
-
-```cd ../frontend
-npm install```
-
-```MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
-PORT=5000```
-
-```# From root or backend folder
-npm run dev```
+   
+      cd backend
+   npm install
+   
+   cd ../frontend
+   npm install
+   
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_secret_key
+   PORT=5000
+   
+   # From root or backend folder
+      npm run dev
