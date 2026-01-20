@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --primary: #00c6fb;
+    --secondary: #005bea;
+    --accent: #ff6a00;
+    --bg: #10131a;
+    --card-bg: rgba(255,255,255,0.07);
+    --text-main: #fff;
+    --text-muted: #b3b9c9;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg) 0%, #181f2c 100%);
+    min-height: 100vh;
+    color: var(--text-main);
+    font-family: 'Roboto', Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+header {
+    text-align: center;
+    padding: 3rem 1rem 1.5rem 1rem;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    color: #fff;
+    font-family: 'Orbitron', 'Roboto', Arial, sans-serif;
+    box-shadow: 0 8px 32px 0 rgba(0,198,251,0.15);
+    clip-path: ellipse(100% 70% at 50% 0%);
+}
+
+header h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.3rem;
+    color: #e6f7ff;
+}
+
+.hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 45vh;
+}
+
+.glow-circle {
+    position: absolute;
+    z-index: 0;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    filter: blur(38px);
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+    animation: pulseGlow 4s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% { opacity: 0.45; }
+    100% { opacity: 0.8; }
+}
+
+.floating-card {
+    position: relative;
+    z-index: 1;
+    width: 340px;
+    padding: 2rem 2.5rem;
+    background: var(--card-bg);
+    border-radius: 1.5rem;
+    box-shadow: 0 12px 36px 0 rgba(0,198,251,0.13), 0 2px 8px 0 rgba(0,0,0,0.10);
+    text-align: center;
+    backdrop-filter: blur(8px);
+    transition: transform 0.18s cubic-bezier(.42,0,.58,1), box-shadow 0.18s cubic-bezier(.42,0,.58,1);
+    cursor: pointer;
+    color: var(--text-main);
+    font-family: 'Roboto', Arial, sans-serif;
+    margin-bottom: 1.5rem;
+}
+
+.floating-card h2 {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    font-family: 'Orbitron', 'Roboto', Arial, sans-serif;
+}
+
+.floating-card p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.gallery {
+    margin: 3rem auto;
+    max-width: 900px;
+    padding: 0 1.5rem;
+}
+
+.gallery h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.1rem;
+    color: var(--primary);
+    font-family: 'Orbitron', 'Roboto', Arial, sans-serif;
+    letter-spacing: 1px;
+}
+
+.gallery-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.gallery-item {
+    min-height: 230px;
+    border-radius: 1.1rem;
+    box-shadow: 0 8px 32px 0 rgba(0,198,251,0.08), 0 2px 8px 0 rgba(0,0,0,0.12);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.28s cubic-bezier(.42,0,.58,1), box-shadow 0.28s cubic-bezier(.42,0,.58,1);
+}
+.gallery-item:hover {
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 0 16px 48px 0 rgba(0,198,251,0.21);
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    animation: gradientMove 4s infinite alternate;
+}
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.wave-bg {
+    background: linear-gradient(120deg, #fff2 0%, #ff6a0022 100%);
+}
+.wave-bg::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background: url('data:image/svg+xml;utf8,<svg width="400" height="230" xmlns="http://www.w3.org/2000/svg"><path fill="%2300c6fb" fill-opacity="0.4" d="M0,100 Q100,150 200,100 T400,100 V230 H0 Z" /></svg>');
+    background-size: cover;
+    opacity: 0.7;
+    animation: waveMove 4s infinite linear alternate;
+}
+@keyframes waveMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-15px);}
+}
+
+.pulse-bg {
+    background: linear-gradient(135deg, #ff6a00 0%, #005bea 100%);
+    position: relative;
+}
+.pulse-bg::after {
+    content: '';
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 130px; height: 130px;
+    background: radial-gradient(circle, #fff4 10%, transparent 80%);
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    animation: pulseCircle 2s infinite alternate;
+}
+@keyframes pulseCircle {
+    0% { width: 130px; height: 130px; opacity: 0.8;}
+    100% { width: 160px; height: 160px; opacity: 0.5;}
+}
+
+footer {
+    text-align: center;
+    padding: 2.5rem 1rem 1rem 1rem;
+    color: #8ca3c6;
+    font-size: 1rem;
+    background: linear-gradient(90deg, #10131a 60%, #181f2c 100%);
+    margin-top: 3rem;
+    border-top: 1px solid #22303d;
+}
+
+@media (max-width: 500px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    .floating-card {
+        width: 98%;
+        padding: 1.3rem 0.7rem;
+    }
+    .gallery-grid {
+        gap: 1rem;
+    }
+}

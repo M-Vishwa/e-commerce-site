@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stunning Interactive Web Page</title>
+<style>
+  /* Reset Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Body and background */
+  body, html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    overflow: hidden;
+    color: white;
+  }
+
+  /* Container centering content */
+  .container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  /* Animated heading */
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #f79533, #f37055, #ef4e7b, #a166ab,
+      #5073b8, #1098ad, #07b39b, #6fba82);
+    background-size: 800% 800%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientBG 15s ease infinite;
+  }
+
+  @keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  /* Subheading */
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    opacity: 0.85;
+  }
+
+  /* Buttons container */
+  .buttons {
+    display: flex;
+    gap: 20px;
+  }
+
+  /* Button styles */
+  button {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 1.1rem;
+    padding: 15px 35px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Hover effect with a sliding gradient */
+  button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, #f79533, #f37055, #ef4e7b, #a166ab,
+      #5073b8, #1098ad, #07b39b, #6fba82);
+    transition: 0.4s ease;
+    z-index: 0;
+  }
+
+  button:hover::before {
+    left: 0;
+  }
+
+  button:hover {
+    color: black;
+    border-color: transparent;
+  }
+
+  /* Make text above the sliding bg */
+  button span {
+    position: relative;
+    z-index: 1;
+    font-weight: 600;
+  }
+
+  /* Subtle floating animation on container for freshness */
+  .container {
+    animation: floatUpDown 8s ease-in-out infinite;
+  }
+
+  @keyframes floatUpDown {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(-15px);}
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Your Interactive Experience</h1>
+    <p>Explore stunning visuals and smooth animations</p>
+    <div class="buttons">
+      <button><span>Get Started</span></button>
+      <button><span>Learn More</span></button>
+    </div>
+  </div>
+</body>
+</html>

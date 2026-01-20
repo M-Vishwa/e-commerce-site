@@ -1,0 +1,374 @@
+/* Basic Reset & Typography */
+:root {
+    --primary-color: #6a0571; /* A deep purple */
+    --secondary-color: #af1a2b; /* A contrasting red/maroon */
+    --text-color: #333;
+    --light-text-color: #f4f4f4;
+    --bg-light: #f9f9f9;
+    --bg-dark: #2c3e50;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-light);
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+h1 { font-size: 3em; }
+h2 { font-size: 2.5em; }
+h3 { font-size: 1.8em; }
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--light-text-color);
+    text-align: center;
+    overflow: hidden; /* Important for parallax image */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); /* Gradient overlay */
+}
+
+/* Parallax Background - This would ideally be an image */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://source.unsplash.com/random/1920x1080/?abstract,geometric') no-repeat center center/cover; /* Replace with your image */
+    transform: translateZ(-10px) scale(2); /* For basic CSS parallax */
+    filter: brightness(0.7); /* Darken image slightly */
+    /* For true parallax with JS, this would involve listening to scroll events */
+    z-index: -1;
+}
+
+.hero-content {
+    z-index: 1; /* Ensure content is above parallax background */
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    color: var(--light-text-color);
+    font-size: 4em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    position: absolute; /* Or 'fixed' if you want it to scroll with the page */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Slightly transparent background */
+    padding: 15px 0;
+    z-index: 1000; /* Ensure it's on top */
+    transition: background 0.3s ease;
+}
+
+/* Example: Change navbar on scroll (requires JS to add/remove a class) */
+.navbar.scrolled {
+    background: var(--bg-dark); /* Solid background on scroll */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--light-text-color);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-left: 30px;
+}
+
+.navbar ul li a {
+    color: var(--light-text-color);
+    font-weight: bold;
+    padding: 5px 0;
+    position: relative; /* For underline effect */
+}
+
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover::after {
+    width: 100%;
+}
+
+/* --- Sections --- */
+section {
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section {
+    background-color: var(--bg-light);
+    border-bottom: 1px solid #eee;
+}
+
+.projects-section {
+    background-color: #f0f0f0;
+    padding-bottom: 100px; /* Extra padding for card shadows */
+}
+
+.contact-section {
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    color: var(--light-text-color);
+}
+
+.contact-section h2, .contact-section p {
+    color: var(--light-text-color);
+}
+
+/* --- Project Grid --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding: 25px;
+    text-align: left;
+}
+
+.project-info h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.project-link {
+    display: inline-block;
+    font-weight: bold;
+    color: var(--secondary-color);
+    position: relative;
+}
+
+.project-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+.project-link:hover::after {
+    width: 100%;
+}
+
+/* --- Contact Form --- */
+.contact-section form {
+    max-width: 600px;
+    margin: 30px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-section input,
+.contact-section textarea {
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-color);
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.5);
+    background: #fff;
+}
+
+.contact-section textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-section .btn {
+    align-self: flex-start; /* Align button to the left */
+    background: var(--light-text-color);
+    color: var(--primary-color);
+}
+
+.contact-section .btn:hover {
+    background: #e0e0e0;
+    color: var(--secondary-color);
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--bg-dark);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 40px 0;
+    font-size: 0.9em;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .navbar .container {
+        flex-direction: column;
+    }
+
+    .navbar ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar ul li {
+        margin: 0 10px 10px 10px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr; /* Stack cards on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+    }
+}

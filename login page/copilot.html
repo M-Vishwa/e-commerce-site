@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stunning Interactive Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #1f1c2c, #928dab);
+      color: #fff;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #ddd;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 10px;
+    }
+    .card {
+      background: #fff;
+      color: #333;
+      border-radius: 10px;
+      margin: 15px;
+      width: 300px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 20px;
+    }
+    .card-content h3 {
+      margin-top: 0;
+      font-size: 1.5em;
+    }
+    .card-content p {
+      color: #666;
+      font-size: 1em;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: rgba(0, 0, 0, 0.3);
+      font-size: 0.9em;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to Visual Magic</h1>
+    <p>Experience stunning visuals and smooth interactivity</p>
+  </header>
+
+  <section class="gallery">
+    <div class="card">
+      <img src="https://source.unsplash.com/300x200/?nature" alt="Nature">
+      <div class="card-content">
+        <h3>Nature's Beauty</h3>
+        <p>Feel the serenity and admire vibrant landscapes.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://source.unsplash.com/300x200/?technology" alt="Technology">
+      <div class="card-content">
+        <h3>Tech & Innovation</h3>
+        <p>Explore the cutting edge of design and development.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://source.unsplash.com/300x200/?art" alt="Art">
+      <div class="card-content">
+        <h3>Creative Vibes</h3>
+        <p>Dive into artistic creations and abstract imagination.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Visual Magic. Designed with passion and pixels.
+  </footer>
+
+</body>
+</html>

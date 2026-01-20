@@ -1,0 +1,78 @@
+WindowManager:
+    LoginScreen:
+    SignupScreen:
+
+<LoginScreen>:
+    name: "login"
+
+    MDLabel:
+        text: "Sign In"
+        halign: "center"
+        font_style: "H4"
+        pos_hint: {"center_x": 0.5, "center_y": 0.85}
+
+    MDTextField:
+        id: username
+        hint_text: "Username"
+        pos_hint: {"center_x": 0.5, "center_y": 0.7}
+        size_hint_x: 0.8
+        mode: "rectangle"
+
+    MDTextField:
+        id: password
+        hint_text: "Password"
+        password: True
+        pos_hint: {"center_x": 0.5, "center_y": 0.6}
+        size_hint_x: 0.8
+        mode: "rectangle"
+
+    MDRaisedButton:
+        text: "Sign In"
+        pos_hint: {"center_x": 0.5, "center_y": 0.48}
+        size_hint_x: 0.8
+        on_release: root.do_login()
+
+    MDTextButton:
+        text: "Don't have an account? Sign Up"
+        pos_hint: {"center_x": 0.5, "center_y": 0.4}
+        theme_text_color: "Custom"
+        text_color: 0, 0, 1, 1
+        on_release: app.root.current = "signup"
+
+
+<SignupScreen>:
+    name: "signup"
+
+    MDLabel:
+        text: "Sign Up"
+        halign: "center"
+        font_style: "H4"
+        pos_hint: {"center_x": 0.5, "center_y": 0.85}
+
+    MDTextField:
+        id: username
+        hint_text: "Choose Username"
+        pos_hint: {"center_x": 0.5, "center_y": 0.7}
+        size_hint_x: 0.8
+        mode: "rectangle"
+
+    MDTextField:
+        id: password
+        hint_text: "Choose Password"
+        password: True
+        pos_hint: {"center_x": 0.5, "center_y": 0.6}
+        size_hint_x: 0.8
+        mode: "rectangle"
+
+    MDRaisedButton:
+        text: "Sign Up"
+        pos_hint: {"center_x": 0.5, "center_y": 0.48}
+        size_hint_x: 0.8
+        on_release: root.do_signup()
+
+    MDTextButton:
+        text: "Already have an account? Sign In"
+        pos_hint: {"center_x": 0.5, "center_y": 0.4}
+        theme_text_color: "Custom"
+        text_color: 0, 0, 1, 1
+        on_release: app.root.current = "login"

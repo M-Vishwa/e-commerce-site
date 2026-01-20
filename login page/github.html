@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stunning Interactive Web Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="github.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to a Stunning Interactive Experience</h1>
+        <p>Enjoy visuals, animations, and dynamic interaction!</p>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="glow-circle"></div>
+            <div class="floating-card" id="interactive-card">
+                <h2>Hover Me!</h2>
+                <p>This card reacts to your mouse movement.</p>
+            </div>
+        </section>
+        <section class="gallery">
+            <h2>Animated Visual Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item gradient-bg"></div>
+                <div class="gallery-item wave-bg"></div>
+                <div class="gallery-item pulse-bg"></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Stunning Visuals. All rights reserved.</p>
+    </footer>
+    <script>
+        // Interactive Card Tilt Effect
+        const card = document.getElementById('interactive-card');
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            const rotateX = (-y / 20).toFixed(2);
+            const rotateY = (x / 20).toFixed(2);
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.07)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+        });
+    </script>
+</body>
+</html>

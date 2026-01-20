@@ -1,0 +1,37 @@
+<DashboardScreen>:
+    name: "dashboard"
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: dp(12)
+        padding: dp(10), dp(30), dp(10), dp(10)
+
+        MDLabel:
+            text: "Community Issues"
+            font_style: "H4"
+            halign: "center"
+            size_hint_y: None
+            height: dp(40)
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            spacing: dp(10)
+            size_hint_y: None
+            height: dp(60)
+            MDTextField:
+                id: report_text
+                hint_text: "Describe the issue..."
+                multiline: True
+
+            MDRaisedButton:
+                text: "Attach Photo"
+                on_release: root.choose_photo()
+            MDRaisedButton:
+                text: "Submit"
+                on_release: root.upload_report()
+        ScrollView:
+            MDBoxLayout:
+                id: reports_container
+                orientation: "vertical"
+                spacing: dp(16)
+                size_hint_y: None
+                height: self.minimum_height
